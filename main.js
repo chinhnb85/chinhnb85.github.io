@@ -1,0 +1,1 @@
+const socket=io('https://stream1005.herokuapp.com/');

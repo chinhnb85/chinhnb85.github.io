@@ -1,89 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Demo Ctrl Click</title>
-	<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-	
-	
-	<style>
-		img{
-			padding:10px;
-			margin:10px;
-			border:1px solid #ccc
-		}
-.demo{
-    position: relative;
-    display: inline-block;    
-    width: 100%;
-    height: 360px;
-}
-.demo img{
-position:absolute;
-top:0;
-left:0;
-}		
-	</style>
-	
+	<title>Stream1005</title>
+	<script src="jquery-2.2.4.min.js"></script>	
+	<script src="socket.io.js"></script>
+	<script src="main.js"></script>
 </head>
 
 <body>
+	<h1>Stream1005</h1>
 	
-	<div class="demo">
-		<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqj5SUYaLj-SfqwqexlTPXX_y0FzClwj18LmEZilYERUYa7w20" width="320"/>
-	</div>
-	
-	<div class="demo">
-		<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5EftjUzLLPw3WA_VkM3yDKvz3WFXBbAyDeP_4BCtO-nwKLG01" width="320"/>
-	</div>
-	
-	<div class="demo">
-		<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgfbjbkL6XO0Z3wF2AiZO8FE7BoTBHFAa5tzvBPwz0YMQtE5Ln" width="320"/>
-	</div>
-	
-	<div class="demo">
-		<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKqlEPmiCS63zSY3eWdwEb9sfJpaGX5Y19PW23PTuRGFwcusfm" width="320"/>
-	</div>
-	
-	<div class="demo">
-		<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5EftjUzLLPw3WA_VkM3yDKvz3WFXBbAyDeP_4BCtO-nwKLG01" width="320"/>
-	</div>
-
 </body>
 
 </html>
-<script src="move.min.js"></script>
-
-<script>
-var count=0;
-
-function isMac() {
-    return navigator.userAgent.indexOf('Mac OS X') != -1;
-}
-
-$('img').off('click').on('click', function(e){
-    if (isMac() && e.metaKey || !isMac() && e.ctrlKey) {
-		count++;
-        console.log(count);
-		var img=$(this).clone().appendTo($(this).parents('.demo'));
-		
-		move(img.context)
-        .x(500)
-        .y(200)
-        .ease('in-out')
-        .then()
-          .x(0)
-          .then()
-            .y(-0)
-            .duration('2s')
-            .delay('.5s')
-            //.rotate(180)
-            .pop()
-          .pop()
-        .end();
-		
-    } else {
-		count=0;
-        console.log(count);
-    }
-});
-</script>
