@@ -2,14 +2,32 @@
 <html>
 <head>
 	<title>Stream1005</title>
-	<script src="jquery-2.2.4.min.js"></script>	
+	<script src="jquery-2.2.4.min.js"></script>		
+	<script src="peer.js"></script>	
 	<script src="socket.io.js"></script>
-	<script src="main.js"></script>
 </head>
 
 <body>
-	<h1>Stream1005</h1>
-	
+	<div id="div-chat">
+		<h1>Stream1005: User Online</h1>
+		<ul id="listUserOnline">
+
+		</ul>
+		<h2>YouID: <span id="my-peer"></span></h2>
+		<video id="localStream" width="300" controls></video>
+		<br/> <br/>
+		<video id="remoteStream" width="300" controls></video>
+		<br/> <br/>
+		<input type="text" id="remoteId" placeholder="Remote ID" />
+		<button id="btnCall">Call</button>		
+	</div>
+	<div id="div-dangky">
+		<br/> <br/>
+		<input type="text" id="txtUsername" placeholder="Username" />
+		<button id="btnSignUp">Sign Up</button>
+	</div>
 </body>
+
+<script src="main.js"></script>
 
 </html>
