@@ -3,6 +3,30 @@ const socket=io('https://stream1005.herokuapp.com/');
 
 $('#div-chat').hide();
 
+let customConfig;
+
+// if(!ice){
+//     ice = new $xirsys.ice('/webrtc');
+//     ice.on(ice.onICEList, function (evt){
+//         //console.log('onICE ',evt);
+//         if(evt.type == ice.onICEList){
+//             customConfig=ice.iceServers;
+//         }
+//     });
+// }
+
+$.ajax ({
+    url: "https://global.xirsys.net/_turn/chinhnb85.github.io/",
+    type: "PUT",
+    async: false,
+    headers: {
+      "Authorization": "Basic " + btoa("chinhnb:c8a41292-0b0d-11e8-a6b4-48b2c82d1ec5")
+    },
+    success: function (res){
+      //console.log("ICE List: "+res.v.iceServers);
+      customConfig=res.v.iceServers;
+    }
+});
 
 socket.on('DS_ONLINE',arrUserInfo=>{
     //console.log(arrUserInfo);
@@ -43,7 +67,7 @@ function playStream(idVideoTag, stream){
 //openStream().then(stream => playStream('localStream',stream));
 
 //var peer = new Peer({key: 'io2762a9o95uq5mi'});
-var peer = new Peer({key: 'peerjs',host:'mypeer1005.herokuapp.com',secure:true,port:443});
+var peer = new Peer({key: 'peerjs',host:'mypeer1005.herokuapp.com',secure:true,port:443, config:customConfig});
 
 peer.on('open',id=>{
     $('#my-peer').append(id);
