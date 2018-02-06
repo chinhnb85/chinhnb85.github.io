@@ -1,5 +1,5 @@
-//const socket=io('https://stream1005.herokuapp.com/');
-const socket=io('http://localhost:3000/');
+const socket=io('https://stream1005.herokuapp.com/');
+//const socket=io('http://localhost:3000/');
 
 $('#div-chat').hide();
 
