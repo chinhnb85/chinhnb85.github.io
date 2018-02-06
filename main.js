@@ -13,7 +13,7 @@ $.ajax ({
       "Authorization": "Basic " + btoa("chinhnb:c8a41292-0b0d-11e8-a6b4-48b2c82d1ec5")
     },
     success: function (res){
-      console.log("ICE List: "+res.v.iceServers);
+      //console.log("ICE List: "+res.v.iceServers);
       customConfig=res.v.iceServers;
     }
 });
